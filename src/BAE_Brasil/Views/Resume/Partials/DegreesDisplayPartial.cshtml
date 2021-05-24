@@ -1,0 +1,29 @@
+@model Resume
+
+<div id="degrees" class="d-flex flex-column justify-content-center mt-4">
+    <div class="d-flex flex-column">
+        <h4>Formação:</h4>
+        <div class="border-bottom border-secondary w-100"></div>
+    </div>
+    <div>
+        @foreach (var degree in @Model.Degrees)
+        {
+            <div class="mt-2">
+                <span class="font-weight-bold">Instituição:</span>
+                <span>@degree.Institution</span>
+            </div>
+            <div class="mt-2">
+                <span class="font-weight-bold">Nível:</span>
+                <span>@degree.Level</span>
+            </div>
+            <div class="mt-2">
+                <span class="font-weight-bold">Início:</span>
+                <span>@degree.StartedAt.ToString("MM/yyyy")</span>
+            </div>
+            <div class="mt-2">
+                <span class="font-weight-bold">Término:</span>
+                <span>@degree.EndedAt.ToString("MM/yyyy")</span>
+            </div>
+        }
+    </div>
+</div>

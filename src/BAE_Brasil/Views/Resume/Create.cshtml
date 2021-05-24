@@ -1,0 +1,23 @@
+@model CreateResumeViewModel
+
+<div class="d-flex justify-content-center">
+    <form asp-action="SubmitCreate" method="post" class="w-50 mt-2">
+        <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
+            <h2 id="register-title">
+                Criar Currículo
+            </h2>
+        </div>
+        <div id="main">
+            <div class="form-group">
+                <label for="nationality" class="font-weight-bold">Nacionalidade:</label>
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+                <input type="text" id="nationality" asp-for="Nationality" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="goals" class="font-weight-bold">Objetivos:</label>
+                <span asp-validation-for="Goal" class="text-danger"></span>
+                <textarea type="text" id="goals" asp-for="Goal" class="form-control"></textarea>
+            </div>
+        </div>
+    </form>
+</div>

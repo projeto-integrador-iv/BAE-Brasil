@@ -1,0 +1,27 @@
+@model ResumeViewModel
+
+<div class="d-flex justify-content-center">
+    <div class="w-75 mt-2">
+        <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
+            <h2 id="register-title">
+                Currículo de @Model.FullName
+            </h2>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div id="main-col">
+                <partial name="Partials/MainInfoPartial" model="@Model.Resume"/>
+            </div>
+            <div id="col1" class="mr-4 w-100">
+                <div>
+                    <partial name="Partials/ProfessionalExperienceDisplayPartial" model="@Model.Resume"/>  
+                    <a class="btn btn-outline-success">+</a>
+                </div>
+                
+            </div>
+            <div id="col2" class="ml-4 w-100">
+                <partial name="Partials/DegreesDisplayPartial" model="@Model.Resume"/>
+                <partial name="Partials/LanguagesDisplayPartial" model="@Model.Resume"/>
+            </div>
+        </div>
+    </div>
+</div>

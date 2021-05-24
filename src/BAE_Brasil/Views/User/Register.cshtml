@@ -1,0 +1,38 @@
+@using BAE_Brasil.Identity.Utils.Enums
+@model CreateUserViewModel
+
+<div class="d-flex justify-content-center">
+    <form asp-action="SubmitRegister" method="post" class="w-50 mt-2">
+        <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
+            <h2 id="register-title">
+                Registrar
+            </h2>
+        </div>
+        <div class="form-group">
+            <label for="email" class="font-weight-bold">Email:</label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input type="email" id="email" asp-for="Email" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="font-weight-bold">Senha:</label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <input type="password" id="password" asp-for="Password" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password" class="font-weight-bold">Confirmar Senha:</label>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <input type="password" id="confirm-password" asp-for="ConfirmPassword" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="user-type" class="font-weight-bold">Gostaria de se cadastrar como:</label>
+            <select id="user-type" class="form-check">
+                <option value="@UserType.Candidato">@UserType.Candidato.ToString()</option>
+                <option value="@UserType.Empregador">@UserType.Empregador.ToString()</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <input type="submit" class="btn btn-outline-info font-weight-bold" value="Cadastrar">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+@model Resume
+
+
+<div id="address" class="d-flex flex-column justify-content-center">
+    <div class="d-flex flex-column mb-2">
+        <h4>Idiomas</h4>
+        <div class="border-bottom border-secondary w-100"></div>
+    </div>
+    @foreach (var lang in @Model.ResumeLanguages)
+    {
+        <div class="mt-2">
+            <span class="font-weight-bold">Idioma:</span>
+            <span>@lang.Language.Name</span>
+        </div>
+        <div class="mt-2">
+            <span class="font-weight-bold">Proficiência:</span>
+            <span>@lang.Language.Proficiency</span>
+        </div>
+    }
+</div>

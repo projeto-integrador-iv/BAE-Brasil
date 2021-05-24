@@ -1,0 +1,44 @@
+@model UserProfileViewModel
+
+ <form asp-action="SubmitCreateAddress" method="post">
+    <div class="form-group">
+        <label for="street" class="font-weight-bold">Rua:</label>
+        <span asp-validation-for="Street" class="text-danger"></span>
+        <input type="text" id="street" asp-for="Street" class="form-control"/>
+    </div>
+    <div class="d-flex">
+        <div class="form-group mr-1">
+            <label for="number" class="font-weight-bold">Número:</label>
+            <span asp-validation-for="Number" class="text-danger"></span>
+            <input type="text" id="number" asp-for="Number" class="form-control"/>
+        </div>
+        <div class="form-group ml-1">
+            <label for="complement" class="font-weight-bold">Complemento:</label>
+            <span asp-validation-for="Complement" class="text-danger"></span>
+            <input type="text" id="complement" asp-for="Complement" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bairro" class="font-weight-bold">Bairro:</label>
+        <span asp-validation-for="Bairro" class="text-danger"></span>
+        <input type="text" id="bairro" asp-for="Bairro" class="form-control"/>
+    </div>
+    <div class="d-flex">
+        <div class="form-group mr-1">
+            <label for="city" class="font-weight-bold">Cidade:</label>
+            <span asp-validation-for="City" class="text-danger"></span>
+            <input type="text" id="city" asp-for="City" class="form-control"/>
+        </div>
+        <div class="form-group ml-1">
+            <label for="state" class="font-weight-bold">Estado:</label>
+            <span asp-validation-for="State" class="text-danger"></span>
+            <input type="text" id="state" asp-for="State" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cep" class="font-weight-bold">CEP:</label>
+        <span asp-validation-for="Cep" class="text-danger"></span>
+        <input type="text" id="cep" asp-for="Cep" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-outline-primary" value="Confirmar">
+</form>

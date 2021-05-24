@@ -1,0 +1,72 @@
+@using BAE_Brasil.Identity.Utils.Enums
+@using BAE_Brasil.Identity.Utils.ViewRenderers
+@model CreateProfileViewModel
+
+@{
+    var render = new PropertyRenderer(Model.UserType);
+}
+
+<div class="d-flex justify-content-center">
+    <form asp-action="SubmitCreate" method="post" class="w-50 mt-2">
+        <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
+            <h2 id="register-title">
+                Criar Perfil
+            </h2>
+        </div>
+        <div id="identification">
+            <div class="form-group">
+                <label for="full-name" class="font-weight-bold">
+                    @render.ByUserType("Nome do Candidato", "Nome da Empresa"):
+                </label>
+                <span asp-validation-for="FullName" class="text-danger"></span>
+                <input type="text" id="full-name" asp-for="FullName" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="birth-date" class="font-weight-bold">
+                    @render.ByUserType("Data de Nascimento", "Data de Criação"):
+                </label>
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+                <input type="date" id="birth-date" asp-for="BirthDate" class="form-control"/>
+            </div>
+        </div>
+        <div id="documents">
+            <div class="form-group">
+                <label for="doc-number" class="font-weight-bold">
+                    @render.ByUserType("RG ou Passaporte", "CNPJ"):
+                </label>
+                <span asp-validation-for="DocDescription" class="text-danger"></span>
+                <input type="text" id="doc-number" asp-for="DocDescription" class="form-control"/>
+            </div>
+            @if (@Model.DocumentType != DocumentType.CNPJ)
+            {
+                <div class="form-group">
+                    <input type="radio" id="rg" asp-for="DocumentType" value="@DocumentType.RG">
+                    <label for="rg">RG/Identidade</label>
+                
+                    <input type="radio" id="passport" asp-for="DocumentType" value="@DocumentType.Passaporte">
+                    <label for="passport">Passaporte</label>
+                </div>
+            }
+        </div>
+        <div id="contacts">
+            <div id="telephone" class="form-group">
+                <label for="telStateCode">DDD</label>
+                <input type="text" id="telStateCode" asp-for="TelStateCode" class="form-control w-25">
+
+                <label for="telNumber">Número de Telefone</label>
+                <input type="text" id="telNumber" asp-for="TelNumber" class="form-control">
+            </div>
+            <div id="cellphone" class="form-group">
+                <label for="cellStateCode">DDD</label>
+                <input type="text" id="cellStateCode" asp-for="CellStateCode" class="form-control w-25">
+
+                <label for="cellNumber">Número de Telefone</label>
+                <input type="text" id="cellNumber" asp-for="CellNumber" class="form-control">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <input type="submit" class="btn btn-outline-info font-weight-bold" value="Cadastrar">
+        </div>
+    </form>
+</div>
