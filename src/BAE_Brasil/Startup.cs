@@ -1,4 +1,7 @@
 using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using BAE_Brasil.DataSource;
 using BAE_Brasil.Service;
 using Microsoft.AspNetCore.Builder;
@@ -28,9 +31,12 @@ namespace BAE_Brasil
             
             services.AddDistributedMemoryCache();
             
+            var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var dbPath = Path.Combine(currentPath ?? ".", Configuration.GetConnectionString("IdentityDb"));
+            
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlite(Configuration.GetConnectionString("IdentityDb"));
+                options.UseSqlite($"Filename={dbPath}");
             });
             
             services.AddSession(options =>
@@ -44,13 +50,16 @@ namespace BAE_Brasil
             services.AddScoped<IResumeService, ResumeService>();
             services.AddScoped<ICandidateFilterService, CandidateFilterService>();
             services.AddScoped<IAuthorizationPolicyEnforcementService, AuthorizationPolicyEnforcementService>();
+
+            var context = GetDbContext(services);
+            MigrateIfAny(context);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseExceptionHandler("/Home/Error");
-
+            //app.UseExceptionHandler("/Home/Error");
+            app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseHsts();
@@ -65,5 +74,21 @@ namespace BAE_Brasil
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        private void MigrateIfAny(AppDbContext context)
+        {
+            if (context.Database.GetMigrations().Any())
+            {
+                context.Database.Migrate();
+            }
+        }
+
+        private AppDbContext GetDbContext(IServiceCollection services)
+        {
+            var sp = services.BuildServiceProvider().CreateScope();
+            var context = sp.ServiceProvider.GetRequiredService<AppDbContext>();
+            return context;
+        }
+        
     }
 }

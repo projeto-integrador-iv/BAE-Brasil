@@ -98,6 +98,9 @@ namespace BAE_Brasil.Migrations
                     b.Property<DateTime>("StartedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Subject")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("DegreeId");
 
                     b.HasIndex("ResumeId");

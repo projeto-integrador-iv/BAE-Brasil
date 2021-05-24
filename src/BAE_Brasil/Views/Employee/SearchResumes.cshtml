@@ -1,6 +1,6 @@
 ﻿@model SearchCandidateViewModel
 
-<div class="d-flex justify-content-center">
+<div class="d-flex flex-column align-items-center">
     <form asp-action="SubmitSearchResumes" method="post" class="w-75 mt-2">
         <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
             <h2 id="register-title">
@@ -48,17 +48,20 @@
     </form>
     
     <div class="d-flex flex-column flex-wrap w-100">
-        @foreach (var profile in @Model.UserProfiles)
+        @if (@Model != null)
         {
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">@profile.FullName</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@profile.Address.City - @profile.Address.State</h6>
-                    <p class="card-text">@profile.Resume.Goal</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+            @foreach (var profile in @Model.UserProfiles)
+            {
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@profile.FullName</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@profile.Address.City - @profile.Address.State</h6>
+                        <p class="card-text">@profile.Resume.Goal</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
