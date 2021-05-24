@@ -33,7 +33,7 @@ namespace BAE_Brasil.Controllers
         {
             var result = _candidateFilterService.Filter(searchCandidateVm);
             searchCandidateVm.UserProfiles = result;
-            return View("SearchResumes", result);
+            return View("SearchResumes", searchCandidateVm);
         }
     }
 }
