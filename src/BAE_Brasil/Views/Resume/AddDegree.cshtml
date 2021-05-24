@@ -28,6 +28,11 @@
                 <span asp-validation-for="EndedAt" class="text-danger"></span>
                 <input type="date" id="end" asp-for="EndedAt" class="form-control"/>
             </div>
+            <div class="form-group">
+                <label for="subject" class="font-weight-bold">Área de Formação:</label>
+                <span asp-validation-for="Subject" class="text-danger"></span>
+                <input type="text" id="subject" asp-for="Subject" class="form-control"/>
+            </div>
         </div>
         <input type="submit" class="btn btn-outline-primary" value="Confirmar">
     </form>

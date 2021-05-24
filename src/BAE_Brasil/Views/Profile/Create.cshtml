@@ -38,7 +38,7 @@
                 <span asp-validation-for="DocDescription" class="text-danger"></span>
                 <input type="text" id="doc-number" asp-for="DocDescription" class="form-control"/>
             </div>
-            @if (@Model.DocumentType != DocumentType.CNPJ)
+            @if (@Model.UserType == UserType.Candidato)
             {
                 <div class="form-group">
                     <input type="radio" id="rg" asp-for="DocumentType" value="@DocumentType.RG">
@@ -61,7 +61,7 @@
                 <label for="cellStateCode">DDD</label>
                 <input type="text" id="cellStateCode" asp-for="CellStateCode" class="form-control w-25">
 
-                <label for="cellNumber">Número de Telefone</label>
+                <label for="cellNumber">Número de Celular</label>
                 <input type="text" id="cellNumber" asp-for="CellNumber" class="form-control">
             </div>
         </div>

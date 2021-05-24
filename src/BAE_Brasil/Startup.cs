@@ -42,6 +42,7 @@ namespace BAE_Brasil
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserProfileService, UserProfileService>();
             services.AddScoped<IResumeService, ResumeService>();
+            services.AddScoped<ICandidateFilterService, CandidateFilterService>();
             services.AddScoped<IAuthorizationPolicyEnforcementService, AuthorizationPolicyEnforcementService>();
         }
 

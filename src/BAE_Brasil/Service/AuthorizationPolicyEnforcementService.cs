@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using BAE_Brasil.DataSource;
 using BAE_Brasil.Exceptions;
+using BAE_Brasil.Models;
+using BAE_Brasil.Utils.Enums;
 using BAE_Brasil.Utils.Extensions;
 using Microsoft.AspNetCore.Http;
 
@@ -27,6 +29,15 @@ namespace BAE_Brasil.Service
         {
             if (!_session.IsLoggedIn())
                 throw new AuthenticationNeededException();
+            return this;
+        }
+
+        public AuthorizationPolicyEnforcementService EnsureUserType(UserType authorizedType)
+        {
+            var currentUserType = _session.GetUserType();
+            if (currentUserType != authorizedType)
+                throw new ForbiddenUserTypeException(currentUserType);
+
             return this;
         }
 

@@ -2,8 +2,8 @@ using BAE_Brasil.Models;
 using BAE_Brasil.Utils.Extensions;
 using BAE_Brasil.Models.ViewModels;
 using BAE_Brasil.Service;
+using BAE_Brasil.Utils.Enums;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BAE_Brasil.Controllers
 {
@@ -24,7 +24,8 @@ namespace BAE_Brasil.Controllers
         {
             _authorizationPolicy.SetCurrentSession(HttpContext.Session)
                 .EnsureLoggedIn()
-                .EnsureThatUserProfile(exists: true);
+                .EnsureThatUserProfile(exists: true)
+                .EnsureUserType(UserType.Candidato);
             
             var profileId = HttpContext.Session.GetProfileId().Value;
             
@@ -40,8 +41,9 @@ namespace BAE_Brasil.Controllers
         {
             _authorizationPolicy.SetCurrentSession(HttpContext.Session)
                 .EnsureLoggedIn()
-                .EnsureThatUserProfile(exists: true);
-            
+                .EnsureThatUserProfile(exists: true)
+                .EnsureUserType(UserType.Candidato);
+                
             return View();
         }
 
@@ -62,7 +64,8 @@ namespace BAE_Brasil.Controllers
         {
             _authorizationPolicy.SetCurrentSession(HttpContext.Session)
                 .EnsureLoggedIn()
-                .EnsureThatUserProfile(exists: true);
+                .EnsureThatUserProfile(exists: true)
+                .EnsureUserType(UserType.Candidato);
 
             return View();
         }
@@ -83,7 +86,9 @@ namespace BAE_Brasil.Controllers
         {
             _authorizationPolicy.SetCurrentSession(HttpContext.Session)
                 .EnsureLoggedIn()
-                .EnsureThatUserProfile(exists: true);
+                .EnsureThatUserProfile(exists: true)
+                .EnsureUserType(UserType.Candidato);
+                
             return View();
         }
 
@@ -104,7 +109,9 @@ namespace BAE_Brasil.Controllers
         {
             _authorizationPolicy.SetCurrentSession(HttpContext.Session)
                 .EnsureLoggedIn()
-                .EnsureThatUserProfile(exists: true);
+                .EnsureThatUserProfile(exists: true)
+                .EnsureUserType(UserType.Candidato);
+                
             return View();   
         }
         

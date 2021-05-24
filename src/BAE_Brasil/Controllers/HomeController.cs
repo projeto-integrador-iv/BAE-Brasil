@@ -33,13 +33,12 @@ namespace BAE_Brasil.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            var error = HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
-
             return HttpContext.Features.Get<IExceptionHandlerFeature>().Error switch
             {
-                AuthenticationNeededException => RedirectToAction("Login", "User"),
-                UserProfileException {ProfileExists: true} => RedirectToAction("Index", "Profile"),
+                AuthenticationNeededException               => RedirectToAction("Login", "User"),
+                UserProfileException {ProfileExists: true}  => RedirectToAction("Index", "Profile"),
                 UserProfileException {ProfileExists: false} => RedirectToAction("Create", "Profile"),
+                ForbiddenUserTypeException                  => RedirectToAction("Index", "Home"),
                 _ => View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier})
             };
         }

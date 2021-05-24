@@ -14,6 +14,9 @@ namespace BAE_Brasil.Models
         [MinLength(3, ErrorMessage = ErrorMessage.MinLength3)]
         public string Institution { get; set; }
         
+        [MinLength(3, ErrorMessage = ErrorMessage.MinLength3)]
+        public string Subject { get; set; }
+
         [Required]
         public DateTime StartedAt { get; set; }
         
