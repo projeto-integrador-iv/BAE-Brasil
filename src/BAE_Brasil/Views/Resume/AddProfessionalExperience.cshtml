@@ -1,0 +1,39 @@
+﻿@model ProfessionalExperience
+
+<div class="d-flex justify-content-center">
+    <form asp-action="SubmitAddProfessionalExperience" method="post" class="w-50 mt-2">
+        <div class="mb-4 border-bottom border-dark d-flex justify-content-center">
+            <h2 id="register-title">
+                Adicionar Experiência Profissional
+            </h2>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="job" class="font-weight-bold">Cargo:</label>
+                <span asp-validation-for="Job" class="text-danger"></span>
+                <input type="text" id="job" asp-for="Job" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="company" class="font-weight-bold">Empresa:</label>
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                <input type="text" id="company" asp-for="CompanyName" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="start" class="font-weight-bold">Data de Início:</label>
+                <span asp-validation-for="StartedAt" class="text-danger"></span>
+                <input type="date" id="start" asp-for="StartedAt" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="end" class="font-weight-bold">Data de Término:</label>
+                <span asp-validation-for="EndedAt" class="text-danger"></span>
+                <input type="date" id="end" asp-for="EndedAt" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="description" class="font-weight-bold">Descrição:</label>
+                <span asp-validation-for="EndedAt" class="text-danger"></span>
+                <textarea id="description" asp-for="Description" class="form-control"></textarea>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-outline-primary" value="Confirmar">
+    </form>
+</div>

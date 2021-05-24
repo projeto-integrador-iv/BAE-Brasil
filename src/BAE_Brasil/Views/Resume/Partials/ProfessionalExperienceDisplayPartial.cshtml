@@ -1,6 +1,6 @@
 @model Resume
 
-<div id="professional-experience" class="d-flex flex-column justify-content-center mt-4">
+<div id="professional-experience" class="d-flex flex-column justify-content-center">
     <div class="d-flex flex-column">
         <h4>Experiência Profissional</h4>
         <div class="border-bottom border-secondary w-100"></div>
@@ -8,25 +8,30 @@
     <div class="d-flex flex-column">
         @foreach (var proExp in @Model.ProfessionalExperiences)
         {
-            <div class="mt-2">
-                <span class="font-weight-bold">Cargo:</span>
-                <span>@proExp.Job</span>
+            <div class="mt-2 d-flex">
+                <div class="mt-2 mr-2">
+                    <span class="font-weight-bold">Cargo:</span>
+                    <span>@proExp.Job</span>
+                </div>
+                <div class="mt-2 ml-2">
+                    <span class="font-weight-bold">Empresa:</span>
+                    <span>@proExp.CompanyName</span>
+                </div>
             </div>
-            <div class="mt-2">
-                <span class="font-weight-bold">Empresa:</span>
-                <span>@proExp.CompanyName</span>
+            <div class="d-flex">
+                <div class="mt-2 mr-2">
+                    <span class="font-weight-bold">Início:</span>
+                    <span>@proExp.StartedAt.ToString("MM/yyyy")</span>
+                </div>
+                <div class="mt-2 ml-2">
+                    <span class="font-weight-bold">Término:</span>
+                    <span>@proExp.EndedAt.ToString("MM/yyyy")</span>
+                </div>
             </div>
-            <div class="mt-2">
-                <span class="font-weight-bold">Início:</span>
-                <span>@proExp.StartedAt.ToString("MM/yyyy")</span>
-            </div>
-            <div class="mt-2">
-                <span class="font-weight-bold">Término:</span>
-                <span>@proExp.EndedAt.ToString("MM/yyyy")</span>
-            </div>
+
             <div class="mt-2">
                 <span class="font-weight-bold">Descrição:</span>
-                <span>@proExp.Description</span>
+                <p class="text-justify text-break">@proExp.Description</p>
             </div>
         }
     </div>

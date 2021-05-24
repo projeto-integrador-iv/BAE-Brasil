@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using BAE_Brasil.DataSource;
 using BAE_Brasil.Models;
 using BAE_Brasil.Models.ViewModels;
@@ -13,21 +14,31 @@ namespace BAE_Brasil.Service
     public class ResumeService : IResumeService
     {
         private readonly AppDbContext _context;
-
-        public ResumeService(AppDbContext context)
+        private readonly IMapper _mapper;
+        
+        public ResumeService(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public ResumeViewModel BuildResumeViewModel(Guid userId)
+        public bool ResumeExists(Guid profileId)
         {
-            var profileData = _context.Profiles
-                .Where(p => p.UserId == userId)
-                .Select(p => new {p.UserProfileId, p.FullName})
+            var resumeId = _context.Resumes
+                .Where(r => r.UserProfileId == profileId)
+                .Select(r => r.ResumeId).FirstOrDefault();
+            return resumeId != default;
+        }
+        
+        public ResumeViewModel BuildResumeViewModel(Guid profileId)
+        {
+            var fullname = _context.Profiles
+                .Where(p => p.UserProfileId == profileId)
+                .Select(p => p.FullName)
                 .Single();
             
             var resume = _context.Resumes
-                .Where(r => r.UserProfileId == profileData.UserProfileId)
+                .Where(r => r.UserProfileId == profileId)
                 .Include(r => r.Degrees)
                 .Include(r => r.ResumeLanguages)
                 .ThenInclude(l => l.Language)
@@ -36,21 +47,78 @@ namespace BAE_Brasil.Service
 
             return new ResumeViewModel
             {
-                FullName = profileData.FullName,
-                Resume = resume ?? new Resume
-                {
-                    Degrees = new List<Degree>(),
-                    ResumeLanguages = new List<ResumeLanguage>(),
-                    ProfessionalExperiences = new List<ProfessionalExperience>()
-                }
+                FullName = fullname,
+                Resume = resume 
             };
         }
+
+        public bool AddProfessionalExperience(
+            ProfessionalExperience professionalExperience, ModelStateDictionary modelState, Guid profileId)
+        {
+            if (!modelState.IsValid)
+                return false;
+            
+            var resumeId = _context.Resumes
+                .Where(r => r.UserProfileId == profileId)
+                .Select(r => r.ResumeId)
+                .FirstOrDefault();
+
+            professionalExperience.ResumeId = resumeId;
+            _context.ProfessionalExperiences.Add(professionalExperience);
+            _context.SaveChanges();
+            
+            return true;
+        }
+
+        public bool AddDegree(Degree degree, ModelStateDictionary modelState, Guid profileId)
+        {
+            if (!modelState.IsValid)
+                return false;
+            
+            var resumeId = _context.Resumes
+                .Where(r => r.UserProfileId == profileId)
+                .Select(r => r.ResumeId)
+                .FirstOrDefault();
+
+            degree.ResumeId = resumeId;
+            _context.Degrees.Add(degree);
+            _context.SaveChanges();
+            
+            return true;
+        }
         
-        public bool CreateResume(ModelStateDictionary modelState, ISession session)
+        public bool AddLanguage(Language language, ModelStateDictionary modelState, Guid profileId)
+        {
+            if (!modelState.IsValid)
+                return false;
+            
+            var resumeId = _context.Resumes
+                .Where(r => r.UserProfileId == profileId)
+                .Select(r => r.ResumeId)
+                .FirstOrDefault();
+
+            var resumeLanguage = new ResumeLanguage
+            {
+                ResumeId = resumeId,
+                Language = language
+            };
+
+            _context.ResumeLanguages.Add(resumeLanguage);
+            _context.SaveChanges();
+            
+            return true;
+        }
+        
+        public bool CreateResume(CreateResumeViewModel createResumeVm, ModelStateDictionary modelState, Guid profileId)
         {
             if (!modelState.IsValid)
                 return false;
 
+            var resume = _mapper.Map<Resume>(createResumeVm);
+            resume.UserProfileId = profileId;
+            _context.Resumes.Add(resume);
+            _context.SaveChanges();
+            
             return true;
         }
     }

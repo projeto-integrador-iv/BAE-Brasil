@@ -52,7 +52,7 @@ namespace BAE_Brasil
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseHsts();
             app.UseRouting();
 
             app.UseAuthorization();

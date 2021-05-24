@@ -44,6 +44,9 @@ namespace BAE_Brasil.Service
             if (profileShouldExistButItDoesnt|| profileShoundtExistButitDoes)
                 throw new UserProfileException(profileExists: !exists, userId: userId);
 
+            if (userProfileId != default)
+                _session.SetProfileId(userProfileId);
+            
             return this;
         }
         

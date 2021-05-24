@@ -31,6 +31,19 @@ namespace BAE_Brasil.Utils.Extensions
             session.SetInt32("userType", (int) user.UserType);
         }
 
+        public static Guid? GetProfileId(this ISession session)
+        {
+            return Guid.Parse(session.GetString("profileId"));
+        }
+        
+        public static void SetProfileId(this ISession session, Guid profileId)
+        {
+            if (!session.TryGetValue("profileId", out _))
+            {
+                session.SetString("profileId", profileId.ToString());
+            }
+        }
+        
         public static void SetCallbackUrl(this ISession session, HttpContext context)
         {
             if (context.GetRouteData().Values.TryGetValue("controller", out var controller) && controller != null)

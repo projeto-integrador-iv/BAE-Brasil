@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BAE_Brasil.Utils.Enums
 {
     public enum Proficiency

@@ -46,10 +46,7 @@ namespace BAE_Brasil.Service
             
             var address = _mapper.Map<Address>(userProfileVm);
             var userId = session.GetUserId();
-            address.UserProfileId = _context.Profiles
-                .Where(p => p.UserId == userId)
-                .Select(p => p.UserProfileId)
-                .Single();
+            address.UserProfileId = session.GetProfileId().Value;
             
             _context.Add(address);
             _context.SaveChanges();
