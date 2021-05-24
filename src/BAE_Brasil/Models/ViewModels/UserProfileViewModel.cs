@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using BAE_Brasil.Identity.Utils.Constants;
-using BAE_Brasil.Identity.Utils.Enums;
+using BAE_Brasil.Utils.Constants;
+using BAE_Brasil.Utils.Enums;
 
-namespace BAE_Brasil.Identity.Models.ViewModels
+namespace BAE_Brasil.Models.ViewModels
 {
     public class UserProfileViewModel
     {

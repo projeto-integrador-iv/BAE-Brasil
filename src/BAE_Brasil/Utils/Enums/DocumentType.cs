@@ -1,4 +1,4 @@
-namespace BAE_Brasil.Identity.Utils.Enums
+namespace BAE_Brasil.Utils.Enums
 {
     public enum DocumentType
     {

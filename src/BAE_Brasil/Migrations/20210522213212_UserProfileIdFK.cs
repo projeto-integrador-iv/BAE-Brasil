@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace BAE_Brasil.Identity.Migrations
+namespace BAE_Brasil.Migrations
 {
     public partial class UserProfileIdFK : Migration
     {

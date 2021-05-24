@@ -1,16 +1,16 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using BAE_Brasil.Identity.DataSource;
-using BAE_Brasil.Identity.Exceptions;
-using BAE_Brasil.Identity.Models;
-using BAE_Brasil.Identity.Models.ViewModels;
-using BAE_Brasil.Identity.Utils.Extensions;
+using BAE_Brasil.DataSource;
+using BAE_Brasil.Exceptions;
+using BAE_Brasil.Utils.Extensions;
+using BAE_Brasil.Models;
+using BAE_Brasil.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public class UserProfileService : IUserProfileService
     {

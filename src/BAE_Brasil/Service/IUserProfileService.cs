@@ -1,9 +1,9 @@
 using System;
-using BAE_Brasil.Identity.Models.ViewModels;
+using BAE_Brasil.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public interface IUserProfileService
     {

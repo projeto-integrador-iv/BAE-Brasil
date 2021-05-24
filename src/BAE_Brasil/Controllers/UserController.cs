@@ -1,9 +1,9 @@
-using BAE_Brasil.Identity.Models.ViewModels;
-using BAE_Brasil.Identity.Service;
-using BAE_Brasil.Identity.Utils.Extensions;
+using BAE_Brasil.Utils.Extensions;
+using BAE_Brasil.Models.ViewModels;
+using BAE_Brasil.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BAE_Brasil.Identity.Controllers
+namespace BAE_Brasil.Controllers
 {
     public class UserController : Controller
     {

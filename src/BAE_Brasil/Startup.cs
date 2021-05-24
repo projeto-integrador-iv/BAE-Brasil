@@ -1,13 +1,13 @@
 using System;
-using BAE_Brasil.Identity.DataSource;
-using BAE_Brasil.Identity.Service;
+using BAE_Brasil.DataSource;
+using BAE_Brasil.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BAE_Brasil.Identity
+namespace BAE_Brasil
 {
     public class Startup
     {

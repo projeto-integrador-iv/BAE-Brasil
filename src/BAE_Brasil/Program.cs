@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace BAE_Brasil.Identity
+namespace BAE_Brasil
 {
     public class Program
     {

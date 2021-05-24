@@ -1,8 +1,8 @@
-using BAE_Brasil.Identity.Models;
-using BAE_Brasil.Identity.Models.ViewModels;
+using BAE_Brasil.Models;
+using BAE_Brasil.Models.ViewModels;
 using Profile = AutoMapper.Profile;
 
-namespace BAE_Brasil.Identity.Utils.MapperProfiles
+namespace BAE_Brasil.Utils.MapperProfiles
 {
     public class UserMapperProfile : Profile
     {

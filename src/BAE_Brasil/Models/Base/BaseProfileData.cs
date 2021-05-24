@@ -1,6 +1,6 @@
 using System;
 
-namespace BAE_Brasil.Identity.Models.Base
+namespace BAE_Brasil.Models.Base
 {
     public abstract class BaseProfileData
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public interface IAuthorizationPolicyEnforcementService
     {

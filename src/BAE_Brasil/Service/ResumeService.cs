@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BAE_Brasil.Identity.DataSource;
-using BAE_Brasil.Identity.Models;
-using BAE_Brasil.Identity.Models.ViewModels;
+using BAE_Brasil.DataSource;
+using BAE_Brasil.Models;
+using BAE_Brasil.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public class ResumeService : IResumeService
     {

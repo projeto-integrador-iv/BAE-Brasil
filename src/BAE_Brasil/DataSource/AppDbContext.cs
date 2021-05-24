@@ -1,7 +1,7 @@
-using BAE_Brasil.Identity.Models;
+using BAE_Brasil.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BAE_Brasil.Identity.DataSource
+namespace BAE_Brasil.DataSource
 {
     public class AppDbContext : DbContext
     {

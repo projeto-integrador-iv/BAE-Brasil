@@ -1,6 +1,6 @@
 using System;
 
-namespace BAE_Brasil.Identity.Exceptions
+namespace BAE_Brasil.Exceptions
 {
     public class AuthenticationNeededException : Exception
     {

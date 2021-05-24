@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BAE_Brasil.Identity.Models
+namespace BAE_Brasil.Models
 {
     public class ProfessionalExperience
     {

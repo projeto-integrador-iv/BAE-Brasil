@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using BAE_Brasil.Identity.Utils.Constants;
+using BAE_Brasil.Utils.Constants;
 
-namespace BAE_Brasil.Identity.Models.ViewModels
+namespace BAE_Brasil.Models.ViewModels
 {
     public class LoginViewModel
     {

@@ -1,7 +1,7 @@
 using System;
-using BAE_Brasil.Identity.Utils.Enums;
+using BAE_Brasil.Utils.Enums;
 
-namespace BAE_Brasil.Identity.Utils.ViewRenderers
+namespace BAE_Brasil.Utils.ViewRenderers
 {
     public class PropertyRenderer
     {

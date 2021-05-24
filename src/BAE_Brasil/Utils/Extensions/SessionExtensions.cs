@@ -1,10 +1,10 @@
 using System;
-using BAE_Brasil.Identity.Models;
-using BAE_Brasil.Identity.Utils.Enums;
+using BAE_Brasil.Models;
+using BAE_Brasil.Utils.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
-namespace BAE_Brasil.Identity.Utils.Extensions
+namespace BAE_Brasil.Utils.Extensions
 {
     public static class SessionExtensions
     {

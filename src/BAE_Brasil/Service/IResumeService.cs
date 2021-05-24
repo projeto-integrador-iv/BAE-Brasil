@@ -1,7 +1,7 @@
 using System;
-using BAE_Brasil.Identity.Models.ViewModels;
+using BAE_Brasil.Models.ViewModels;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public interface IResumeService
     {

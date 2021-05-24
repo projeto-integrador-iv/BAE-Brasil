@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
-using BAE_Brasil.Identity.DataSource;
-using BAE_Brasil.Identity.Exceptions;
-using BAE_Brasil.Identity.Utils.Extensions;
+using BAE_Brasil.DataSource;
+using BAE_Brasil.Exceptions;
+using BAE_Brasil.Utils.Extensions;
 using Microsoft.AspNetCore.Http;
 
-namespace BAE_Brasil.Identity.Service
+namespace BAE_Brasil.Service
 {
     public class AuthorizationPolicyEnforcementService : IAuthorizationPolicyEnforcementService
     {

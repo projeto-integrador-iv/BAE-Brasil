@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BAE_Brasil.Identity.Models.Base;
-using BAE_Brasil.Identity.Utils.Constants;
+using BAE_Brasil.Models.Base;
+using BAE_Brasil.Utils.Constants;
 
-namespace BAE_Brasil.Identity.Models
+namespace BAE_Brasil.Models
 {
     public class Address 
     {

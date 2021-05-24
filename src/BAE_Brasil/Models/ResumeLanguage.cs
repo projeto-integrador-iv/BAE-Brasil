@@ -1,6 +1,6 @@
 using System;
 
-namespace BAE_Brasil.Identity.Models
+namespace BAE_Brasil.Models
 {
     public class ResumeLanguage
     {

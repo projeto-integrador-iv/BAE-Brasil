@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BAE_Brasil.Identity.Models.Base;
+using BAE_Brasil.Models.Base;
 
-namespace BAE_Brasil.Identity.Models
+namespace BAE_Brasil.Models
 {
     public class UserProfile 
     {

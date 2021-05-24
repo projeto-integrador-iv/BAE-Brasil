@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using BAE_Brasil.Identity.Exceptions;
+using BAE_Brasil.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using BAE_Brasil.Identity.Models;
+using BAE_Brasil.Models;
 using Microsoft.AspNetCore.Diagnostics;
 
-namespace BAE_Brasil.Identity.Controllers
+namespace BAE_Brasil.Controllers
 {
     public class HomeController : Controller
     {

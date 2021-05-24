@@ -1,4 +1,4 @@
-namespace BAE_Brasil.Identity.Models.ViewModels
+namespace BAE_Brasil.Models.ViewModels
 {
     public class ResumeViewModel
     {

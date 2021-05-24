@@ -1,8 +1,8 @@
 using System.Linq;
-using BAE_Brasil.Identity.Models;
+using BAE_Brasil.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BAE_Brasil.Identity.Utils.Extensions
+namespace BAE_Brasil.Utils.Extensions
 {
     public static class QueryableExtensions
     {

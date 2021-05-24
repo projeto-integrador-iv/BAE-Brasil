@@ -1,6 +1,6 @@
-﻿using BAE_Brasil.Identity.Models;
+﻿using BAE_Brasil.Models;
 
-namespace BAE_Brasil.Identity.Utils.Constants
+namespace BAE_Brasil.Utils.Constants
 {
     public static class ErrorMessage
     {
