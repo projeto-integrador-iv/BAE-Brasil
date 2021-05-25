@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using BAE_Brasil.DataSource;
 using BAE_Brasil.DataSource.SeedData;
 using BAE_Brasil.Service;
@@ -91,13 +92,6 @@ namespace BAE_Brasil
                 context.Database.Migrate();
             }
 
-            if (context.Users.Count() < 300)
-            {
-                var users = BogusUsers.CreateBogusUsers(300);
-                context.Users.AddRange(users);
-                context.SaveChanges();
-                Console.WriteLine("Usuários de teste criados");
-            }
         }
 
         private AppDbContext GetDbContext(IServiceCollection services)

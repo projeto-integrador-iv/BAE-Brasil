@@ -10,5 +10,6 @@ namespace BAE_Brasil.Service
         public bool InsertUser(CreateUserViewModel userVm, ModelStateDictionary modelState);
         public bool Login(LoginViewModel loginVm, ModelStateDictionary modelState, ISession session);
         public void Logout(ISession session);
+        public void Pop();
     }
 }

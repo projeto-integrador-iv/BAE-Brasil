@@ -1,6 +1,9 @@
+using System;
 using System.Linq;
+using System.Threading;
 using AutoMapper;
 using BAE_Brasil.DataSource;
+using BAE_Brasil.DataSource.SeedData;
 using BAE_Brasil.Utils.Extensions;
 using BAE_Brasil.Models;
 using BAE_Brasil.Models.ViewModels;
@@ -76,6 +79,23 @@ namespace BAE_Brasil.Service
         private bool EmailAlreadyExist(CreateUserViewModel userVm)
         {
             return _context.Users.Any(u => u.Email == userVm.Email);
+        }
+        
+        public void Pop()
+        {
+            if (_context.Users.Count() < 300)
+            {
+                for (var i = 0; i < 30; i++)
+                {
+                    var users = BogusUsers.CreateBogusUsers(10);
+                    _context.Users.AddRange(users);
+                    _context.SaveChanges();
+                    Console.WriteLine($"\nBloco: {i}\n");
+                    System.GC.Collect();
+                    Thread.Sleep(500);
+                }
+                Console.WriteLine("Usuários de teste criados");
+            }
         }
     }
 }

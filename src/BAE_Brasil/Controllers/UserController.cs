@@ -54,5 +54,12 @@ namespace BAE_Brasil.Controllers
             _userService.Logout(HttpContext.Session);
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult Pop()
+        {
+            _userService.Pop();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
