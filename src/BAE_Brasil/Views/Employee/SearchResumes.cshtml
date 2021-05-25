@@ -9,34 +9,29 @@
         </div>
         <div id="filters">
             <div id="filter-fields" class="d-flex justify-content-center mt-2">
-                <div id="by-degree" class="mr-2">
+                <div id="by-degree" class="mr-4">
                     <h4>Formação</h4>
                     <div class="form-group">
                         <label for="by-level" class="font-weight-bold">Nível:</label>
-                        <span asp-validation-for="Level" class="text-danger"></span>
                         <input type="text" id="by-level" asp-for="Level" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="by-end-date" class="font-weight-bold">Término:</label>
-                        <span asp-validation-for="EndedAt" class="text-danger"></span>
                         <input type="date" id="by-end-date" asp-for="EndedAt" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="by-subject" class="font-weight-bold">Área:</label>
-                        <span asp-validation-for="Subject" class="text-danger"></span>
                         <input type="text" id="by-subject" asp-for="Subject" class="form-control">
                     </div>
                 </div>
-                <div id="by-address" class="mr-2">
+                <div id="by-address" class="mr-4">
                     <h4>Endereço</h4>
                     <div class="form-group">
                         <label for="by-state" class="font-weight-bold">Estado:</label>
-                        <span asp-validation-for="State" class="text-danger"></span>
                         <input type="text" id="by-state" asp-for="State" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="by-city" class="font-weight-bold">Cidade:</label>
-                        <span asp-validation-for="City" class="text-danger"></span>
                         <input type="text" id="by-city" asp-for="City" class="form-control">
                     </div>
                 </div>
@@ -47,18 +42,17 @@
         </div>
     </form>
     
-    <div class="d-flex flex-column flex-wrap w-100">
+    <div class="d-flex flex-row mt-4 flex-wrap w-100 justify-content-center">
         @if (@Model != null)
         {
             @foreach (var profile in @Model.UserProfiles)
             {
-                <div class="card" style="width: 18rem;">
+                <div class="card m-1 shadow" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">@profile.FullName</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@profile.Address.City - @profile.Address.State</h6>
                         <p class="card-text">@profile.Resume.Goal</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Acessar Currículo</a>
                     </div>
                 </div>
             }

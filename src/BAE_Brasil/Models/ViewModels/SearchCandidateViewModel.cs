@@ -12,7 +12,7 @@ namespace BAE_Brasil.Models.ViewModels
         
         #region Filters.Degree
         public string Level { get; set; }
-        public DateTime EndedAt { get; set; }
+        public DateTime? EndedAt { get; set; }
         public string Subject { get; set; }
         #endregion
 

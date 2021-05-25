@@ -3,12 +3,14 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using BAE_Brasil.DataSource;
+using BAE_Brasil.DataSource.SeedData;
 using BAE_Brasil.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace BAE_Brasil
 {
@@ -58,8 +60,15 @@ namespace BAE_Brasil
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //app.UseExceptionHandler("/Home/Error");
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseHsts();
@@ -80,6 +89,14 @@ namespace BAE_Brasil
             if (context.Database.GetMigrations().Any())
             {
                 context.Database.Migrate();
+            }
+
+            if (context.Users.Count() < 300)
+            {
+                var users = BogusUsers.CreateBogusUsers(300);
+                context.Users.AddRange(users);
+                context.SaveChanges();
+                Console.WriteLine("Usuários de teste criados");
             }
         }
 
