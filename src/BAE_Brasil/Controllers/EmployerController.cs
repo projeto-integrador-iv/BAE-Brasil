@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BAE_Brasil.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployerController : Controller
     {
         private readonly ICandidateFilterService _candidateFilterService;
         private readonly IAuthorizationPolicyEnforcementService _policyEnforcementService;
         
-        public EmployeeController(ICandidateFilterService candidateFilterService, 
+        public EmployerController(ICandidateFilterService candidateFilterService, 
             IAuthorizationPolicyEnforcementService policyEnforcementService)
         {
             _candidateFilterService = candidateFilterService;

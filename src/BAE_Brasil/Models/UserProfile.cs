@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using BAE_Brasil.Models.Base;
+using BAE_Brasil.Utils.Enums;
 
 namespace BAE_Brasil.Models
 {
@@ -13,6 +14,7 @@ namespace BAE_Brasil.Models
         
         public string FullName { get; set; }
         public DateTime BirthDate { get; set; }
+        public Gender Gender { get; set; }
         
         public Guid UserId { get; set; }
         

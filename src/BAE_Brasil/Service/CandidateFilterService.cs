@@ -22,6 +22,12 @@ namespace BAE_Brasil.Service
         {
             var predicate = PredicateBuilder.New<UserProfile>(true);
 
+            if (!string.IsNullOrWhiteSpace(searchCandidateVm.Language))
+                predicate.And(p => 
+                    p.Resume.ResumeLanguages.Any(l => 
+                        l.Language.Name == searchCandidateVm.Language && 
+                        l.Language.Proficiency == searchCandidateVm.Proficiency));
+
             if (!string.IsNullOrWhiteSpace(searchCandidateVm.State))
                 predicate.And(p => p.Address.State.Contains(searchCandidateVm.State));
 

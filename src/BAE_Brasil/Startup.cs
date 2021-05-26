@@ -70,7 +70,7 @@ namespace BAE_Brasil
                 app.UseExceptionHandler("/Home/Error");
             }
             
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseHsts();
             app.UseRouting();

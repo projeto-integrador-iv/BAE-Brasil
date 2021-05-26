@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using BAE_Brasil.Utils.Enums;
 
 namespace BAE_Brasil.Models.ViewModels
 {
@@ -18,6 +19,11 @@ namespace BAE_Brasil.Models.ViewModels
         public string Subject { get; set; }
         #endregion
 
+        #region Filters.Language
+        public string Language { get; set; }
+        public Proficiency Proficiency { get; set; }
+        #endregion
+        
         public List<UserProfile> UserProfiles { get; set; }
     }
 }

@@ -74,6 +74,7 @@ namespace BAE_Brasil.DataSource.SeedData
                 .RuleFor(p => p.FullName, (faker) => faker.Name.FullName())
                 .RuleFor(p => p.Contacts, f => testContacts.Generate(2).ToList())
                 .RuleFor(p => p.Address, f => testAddresses.Generate())
+                .RuleFor(p => p.Gender, f => f.PickRandom<Gender>())
                 .RuleFor(p => p.Documents, f => testDocs.Generate(1).ToList())
                 .RuleFor(p => p.Resume, f => testResume.Generate());
         

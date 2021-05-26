@@ -1,20 +1,18 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+EXPOSE 5000-5001
 EXPOSE 80
-EXPOSE 443
+# Copy everything else and build
+COPY ./ ./
+RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-COPY ["BAE_Brasil.Identity/BAE_Brasil.Identity.csproj", "BAE_Brasil.Identity/"]
-RUN dotnet restore "BAE_Brasil.Identity/BAE_Brasil.Identity.csproj"
-COPY . .
-WORKDIR "/src/BAE_Brasil.Identity"
-RUN dotnet build "BAE_Brasil.Identity.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "BAE_Brasil.Identity.csproj" -c Release -o /app/publish
-
-FROM base AS final
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BAE_Brasil.Identity.dll"]
+COPY --from=build-env /app/out .
+
+ENTRYPOINT ["dotnet", "BAE_Brasil.dll"]

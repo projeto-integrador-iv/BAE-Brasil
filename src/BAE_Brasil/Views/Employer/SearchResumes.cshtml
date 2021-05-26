@@ -1,4 +1,15 @@
-﻿@model SearchCandidateViewModel
+﻿@using BAE_Brasil.Utils.Enums
+@model SearchCandidateViewModel
+@{
+    string DisplayProficiency(Proficiency profc) => profc switch
+    {
+        Proficiency.Basic           => "Básico",
+        Proficiency.Intermediate    => "Intermediário",
+        Proficiency.Advanced        => "Avançado",
+        Proficiency.Fluent          => "Fluente",
+        Proficiency.Native          => "Nativo"
+    };
+}
 
 <div class="d-flex flex-column align-items-center">
     <form asp-action="SubmitSearchResumes" method="post" class="w-75 mt-2">
@@ -33,6 +44,22 @@
                     <div class="form-group">
                         <label for="by-city" class="font-weight-bold">Cidade:</label>
                         <input type="text" id="by-city" asp-for="City" class="form-control">
+                    </div>
+                </div>
+                <div id="by-language" class="mr-4">
+                    <h4>Idioma</h4>
+                    <div class="form-group">
+                        <label for="lang-name" class="font-weight-bold">Idioma:</label>
+                        <input type="text" id="lang-name" asp-for="Language" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="proficiency" class="font-weight-bold">Proficiência:</label>
+                        <select id="proficiency" asp-for="Proficiency" class="form-control">
+                            @foreach (var opt in Enum.GetValues<Proficiency>())
+                            {
+                                <option value="@opt">@DisplayProficiency(opt)</option>
+                            }
+                        </select>
                     </div>
                 </div>
             </div>

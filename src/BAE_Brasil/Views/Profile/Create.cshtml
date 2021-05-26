@@ -29,6 +29,18 @@
                 <span asp-validation-for="BirthDate" class="text-danger"></span>
                 <input type="date" id="birth-date" asp-for="BirthDate" class="form-control"/>
             </div>
+            @if (Model.UserType == UserType.Candidato)
+            {
+                <div class="form-group">
+                    <label for="proficiency" class="font-weight-bold">Gênero:</label>
+                    <select id="proficiency" asp-for="Gender" class="form-control">
+                        @foreach (var opt in Enum.GetValues<Gender>())
+                        {
+                            <option value="@opt">@opt.ToString()</option>
+                        }
+                    </select>
+                </div>
+            }
         </div>
         <div id="documents">
             <div class="form-group">

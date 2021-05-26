@@ -17,6 +17,8 @@ namespace BAE_Brasil.Models.ViewModels
         
         [Required(ErrorMessage = ErrorMessage.Required)]
         public DateTime BirthDate { get; set; }
+        
+        public Gender Gender { get; set; }
         #endregion
 
         #region Document
