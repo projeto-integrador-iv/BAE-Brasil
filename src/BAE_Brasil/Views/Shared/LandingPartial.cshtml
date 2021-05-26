@@ -1,12 +1,42 @@
-﻿<div class="d-flex bg-light mt-3">
+﻿@using System.Net.Http
+@using BAE_Brasil.Utils.Enums
+@using BAE_Brasil.Utils.Extensions
+@using Microsoft.AspNetCore.Http
+<div class="d-flex bg-light mt-3">
     <div id="content" class="d-flex flex-column justify-content-center">
         <div id="title">
             <div><h1 id="main-title" class="text-center">BAE BRASIL</h1></div>
             <div><h2 id="main-subtitle" class="text-center">Buscadora Acelerada de Empregos Brasil</h2></div>
         </div>
-        <div id="search" class="mt-4 w-100 d-flex justify-content-center">
-            <button type="submit" id="confirm-search" class="btn btn-primary font-weight-bold w-50">Iniciar Busca</button>
-        </div>
+        @if (Context.Session.IsLoggedIn())
+        {
+            if (Context.Session.GetUserType() == UserType.Candidato)
+            {
+                <div class="mt-4 w-100 d-flex justify-content-center">
+                    <a type="submit" href="#"
+                        class="btn btn-primary font-weight-bold w-50">Buscar Vagas</a>
+                </div>
+            }
+            else if (Context.Session.GetUserType() == UserType.Empregador)
+            {
+                <div class="mt-4 w-100 d-flex justify-content-center">
+                    <a type="submit" asp-controller="Employer" asp-action="SearchResumes"
+                       class="btn btn-primary font-weight-bold w-50">Buscar Candidatos</a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="mt-4 w-100 d-flex justify-content-center">
+                <a type="submit" asp-controller="Employer" asp-action="SearchResumes"
+                   class="btn btn-primary font-weight-bold w-50">Buscar Candidatos</a>
+            </div>
+            <div class="mt-4 w-100 d-flex justify-content-center">
+                <a type="submit" href="#"
+                   class="btn btn-primary font-weight-bold w-50">Buscar Vagas</a>
+            </div>
+        }
+
     </div>
     <div id="image" class="ml-4">
         <img src="files/employee.jpg" alt="pessoas trabalhando" id="empregados" width="300">
