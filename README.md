@@ -89,7 +89,7 @@ Dado que o estado atual da aplicação consiste em um MVC, o sistema de gerencia
 é o SQLite e os dados são persistidos em arquivo com extensão ```.db```
 
 ### Diagrama de Entidades e Relações:
-[DER](/src/BAE_Brasil/docs/er.png)
+![DER](/src/BAE_Brasil/docs/er.png)
 
 ## Imagem Docker:
 1. Baixar a imagem:
