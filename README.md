@@ -67,24 +67,24 @@ https://bae-brasil.azurewebsites.net/
 ```
 10. Adiconar experiencia profissional:
 ```C#
-    [HttpGet]   "/resume/addprofessionalexperience" -> View
+    [HttpGet]   "/resume/addprofessionalexperience"       -> View
     [HttpPost]  "/resume/submitaddprofessionalexperience" -> Redirect
 ```
 11. Adicionar formação:
 ```C#
-    [HttpGet]   "/resume/addDegree"
-    [HttpPost]  "/resume/submitAddDegree"
+    [HttpGet]   "/resume/addDegree"         -> View
+    [HttpPost]  "/resume/submitAddDegree"   -> Redirect
 ```
 12. Adicionar idioma:
 ```C#
-    [HttpGet]   "/resume/addLanguage"
-    [HttpPost]  "/resume/submitAddLanguage"
+    [HttpGet]   "/resume/addLanguage"        -> View
+    [HttpPost]  "/resume/submitAddLanguage"  -> Redirect
 ```
 ### __Empregador:__
 13. Buscar por currículos:
 ```C#
-    [HTTP Get]  "/employer/searchResumes"
-    [HttpPost]  "/employer/submitSearchResumes"
+    [HTTP Get]  "/employer/searchResumes"       -> View
+    [HttpPost]  "/employer/submitSearchResumes" -> Redirect
 ```
 
 ## Modelagem e Persistência de Dados
