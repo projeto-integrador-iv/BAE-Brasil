@@ -14,6 +14,9 @@ básicos, pertinentes ao tipo de usuário, é possível ao Candidato cadastrar s
 Empregador buscar currículos de acordo com critérios de filtro. O cadastro e busca de vagas será
 implementado em uma próxima versão.
 
+A aplicação pode ser acessada em:
+https://bae-brasil.azurewebsites.net/
+
 ## Rotas e Secões da Aplicação
 ### __Home:__
 1. Página principal: 
