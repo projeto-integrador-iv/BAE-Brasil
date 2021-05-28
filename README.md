@@ -17,7 +17,7 @@ implementado em uma próxima versão.
 A aplicação pode ser acessada em:
 https://bae-brasil.azurewebsites.net/
 
-## Rotas e Secões da Aplicação
+## Rotas e Seções da Aplicação
 ### __Home:__
 1. Página principal: 
 ```C#
