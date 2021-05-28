@@ -39,36 +39,36 @@ https://bae-brasil.azurewebsites.net/
 ```
 4. Logout:
 ```C#
-    [HTTP Get]  "/user/logout"           -> Redirect
+    [HTTP Get]  "/user/logout" -> Redirect
 ```
 ### __Perfil:__
 5. Dados de perfil:
 ```C#
-    [HTTP Get]  "/profile/index"
+    [HTTP Get]  "/profile/index" -> View
 ```
 6. Registro de perfil:
 ```C#
-    [HTTP Get]  "/profile/create"
-    [HTTP Post] "/profile/submitcreate"
+    [HTTP Get]  "/profile/create"       -> View
+    [HTTP Post] "/profile/submitcreate" -> Redirect
 ```
 7. Cração de endereço:
 ```C#
-    [HTTP Post] "/profile/submitcreateaddress"
+    [HTTP Post] "/profile/submitcreateaddress"  -> Redirect
 ```
 ### __Currículo:__
 8. Dados do currículo:
 ```C#
-    [HttpGet]   "/resume/index"
+    [HttpGet]   "/resume/index"  -> View
 ```
 9. Criação de currículo:
 ```C#
-    [HttpGet]   "/resume/create"
-    [HttpPost]   "/resume/submitcreate"
+    [HttpGet]   "/resume/create"        -> View
+    [HttpPost]   "/resume/submitcreate" -> Redirect
 ```
 10. Adiconar experiencia profissional:
 ```C#
-    [HttpGet]   "/resume/addprofessionalexperience"
-    [HttpPost]  "/resume/submitaddprofessionalexperience"
+    [HttpGet]   "/resume/addprofessionalexperience" -> View
+    [HttpPost]  "/resume/submitaddprofessionalexperience" -> Redirect
 ```
 11. Adicionar formação:
 ```C#
