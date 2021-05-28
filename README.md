@@ -58,33 +58,33 @@ https://bae-brasil.azurewebsites.net/
 ### __Currículo:__
 8. Dados do currículo:
 ```C#
-    [HttpGet]   "/resume/index"  -> View
+    [HTTP Get]   "/resume/index"  -> View
 ```
 9. Criação de currículo:
 ```C#
-    [HttpGet]   "/resume/create"        -> View
-    [HttpPost]   "/resume/submitcreate" -> Redirect
+    [HTTP Get]   "/resume/create"        -> View
+    [HTTP Post]   "/resume/submitcreate" -> Redirect
 ```
 10. Adiconar experiencia profissional:
 ```C#
-    [HttpGet]   "/resume/addprofessionalexperience"       -> View
-    [HttpPost]  "/resume/submitaddprofessionalexperience" -> Redirect
+    [HTTP Get]   "/resume/addprofessionalexperience"       -> View
+    [HTTP Post]  "/resume/submitaddprofessionalexperience" -> Redirect
 ```
 11. Adicionar formação:
 ```C#
-    [HttpGet]   "/resume/addDegree"         -> View
-    [HttpPost]  "/resume/submitAddDegree"   -> Redirect
+    [HTTP Get]   "/resume/addDegree"         -> View
+    [HTTP Post]  "/resume/submitAddDegree"   -> Redirect
 ```
 12. Adicionar idioma:
 ```C#
-    [HttpGet]   "/resume/addLanguage"        -> View
-    [HttpPost]  "/resume/submitAddLanguage"  -> Redirect
+    [HTTP Get]   "/resume/addLanguage"        -> View
+    [HTTP Post]  "/resume/submitAddLanguage"  -> Redirect
 ```
 ### __Empregador:__
 13. Buscar por currículos:
 ```C#
-    [HTTP Get]  "/employer/searchResumes"       -> View
-    [HttpPost]  "/employer/submitSearchResumes" -> Redirect
+    [HTTP Get]   "/employer/searchResumes"       -> View
+    [HTTP Post]  "/employer/submitSearchResumes" -> Redirect
 ```
 
 ## Modelagem e Persistência de Dados
